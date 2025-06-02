@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Man {
     private String name;
     private int age;
@@ -11,22 +13,48 @@ public class Man {
         return name;
     }
 
+    public void setName(String mansName) {
+        if (mansName.isEmpty()) {
+            name = "Амир";
+        } else {
+            name = mansName;
+        }
+    }
+
     public int getAge() {
         return age;
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (!(obj instanceof Man))
-            return false;
-        Man man = (Man) obj;
-        if (age != man.age)
-            return false;
-        if (name != null ? !name.equals(man.name) : man.name != null)
-            return false;
+    public void setAge(int mansAge) {
+        if (mansAge < 0) {
+            age = 0;
+        }
+        if (mansAge > 100) {
+            age = 100
+        } else {
+            age = mansAge;
+        }
     }
 }
 
+@Override
+public boolean equals(Object obj) {
+    if (this == obj) {
+        return true;
+    }
+    if (!(obj instanceof Man man)) {
+        return false;
+    }
+    if (age != man.age) {
+        return false;
+    }
+    if (!Objects.equals(name, man.name)) {
+        return false;
+    }
+    if (name == null) {
+        return false;
+    } else {
+        return true;
+    }
+}
 }
