@@ -13,48 +13,28 @@ public class Man {
         return name;
     }
 
-    public void setName(String mansName) {
-        if (mansName.isEmpty()) {
-            name = "Амир";
-        } else {
-            name = mansName;
-        }
-    }
-
     public int getAge() {
         return age;
     }
 
-    public void setAge(int mansAge) {
-        if (mansAge < 0) {
-            age = 0;
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
         }
-        if (mansAge > 100) {
-            age = 100
+        if (!(obj instanceof Man man)) {
+            return false;
+        }
+        if (age != man.age) {
+            return false;
+        }
+        if (!Objects.equals(name, man.name)) {
+            return false;
+        }
+        if (name == null) {
+            return false;
         } else {
-            age = mansAge;
+            return true;
         }
     }
-}
-
-@Override
-public boolean equals(Object obj) {
-    if (this == obj) {
-        return true;
-    }
-    if (!(obj instanceof Man man)) {
-        return false;
-    }
-    if (age != man.age) {
-        return false;
-    }
-    if (!Objects.equals(name, man.name)) {
-        return false;
-    }
-    if (name == null) {
-        return false;
-    } else {
-        return true;
-    }
-}
 }

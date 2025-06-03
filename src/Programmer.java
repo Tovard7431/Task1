@@ -1,7 +1,8 @@
 public class Programmer extends Man {
     private int lvl;
 
-    Programmer(int lvl) {
+    Programmer(String name, int age, int lvl) {
+        super(name, age);
         this.lvl = lvl;
     }
 
@@ -12,26 +13,13 @@ public class Programmer extends Man {
     public void setLvl(int programmersLvl) {
         if (programmersLvl < 0) {
             lvl = 0;
+            programmersLvl = 0;
         }
         if (programmersLvl > 100) {
             lvl = 100;
+            programmersLvl = 100;
         } else {
             lvl = programmersLvl;
         }
     }
-}
-    /*public Programmer(String name, int age, int lvl) {
-        this.setName(name);
-        this.setAge(age);
-        this.setLvl(lvl);
-        System.out.println("name: " + name);
-        System.out.println("age: " + age);
-        System.out.println("lvl: " + lvl);
-    }
-
-    public Programmer() {
-        this.setName("Amir");
-        this.setAge(0);
-
-    }*/
 }
