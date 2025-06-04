@@ -1,8 +1,14 @@
 public class Programmer extends Man {
     private int lvl;
 
-    Programmer(String name, int age, int lvl) {
+    public Programmer(String name, int age, int lvl) {
         super(name, age);
+        if (lvl < 0) {
+            lvl = 0;
+        }
+        if (lvl > 100) {
+            lvl = 100;
+        }
         this.lvl = lvl;
     }
 
@@ -10,16 +16,4 @@ public class Programmer extends Man {
         return lvl;
     }
 
-    public void setLvl(int programmersLvl) {
-        if (programmersLvl < 0) {
-            lvl = 0;
-            programmersLvl = 0;
-        }
-        if (programmersLvl > 100) {
-            lvl = 100;
-            programmersLvl = 100;
-        } else {
-            lvl = programmersLvl;
-        }
-    }
 }

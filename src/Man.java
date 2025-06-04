@@ -4,9 +4,16 @@ public class Man {
     private String name;
     private int age;
 
-    Man(String name, int age) {
-        this.name = name;
+    public Man(String name, int age) {
+        if (age < 0) {
+            age = 0;
+        }
         this.age = age;
+
+        if (name.isEmpty()) {
+            name = "Амир";
+        }
+        this.name = name;
     }
 
     public String getName() {
@@ -17,6 +24,7 @@ public class Man {
         return age;
     }
 
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -25,16 +33,6 @@ public class Man {
         if (!(obj instanceof Man man)) {
             return false;
         }
-        if (age != man.age) {
-            return false;
-        }
-        if (!Objects.equals(name, man.name)) {
-            return false;
-        }
-        if (name == null) {
-            return false;
-        } else {
-            return true;
-        }
+        return age == man.age && Objects.equals(name, man.name);
     }
 }
