@@ -13,21 +13,32 @@ public class Main {
         int programmer1sLvl = p1.getLvl();
         int programmer2sLvl = p2.getLvl();
         int programmer3sLvl = p3.getLvl();
+        compareProgrammers(p1, p2);
+        compareProgrammers(p2, p1);
+        compareProgrammers(p3, p3);
 
+        Programmer[] programmers = new Programmer[3];
+        programmers[0] = p1;
+        programmers[1] = p2;
+        programmers[2] = p3;
     }
 
     public static void compareProgrammers(Programmer p1, Programmer p2) {
         int lvlDifference = p1.getLvl() - p2.getLvl();
-        if (lvlDifference > 0) {
-            System.out.println("Программист с именем " + p1.getName() + " и возрастом " + p1.getAge() +
-                    " круче программиста с именем " + p2.getName() + " и возрастом " + p2.getAge() +
-                    " на " + lvlDifference + " уровней.");
-        } else if (lvlDifference < 0) {
-            System.out.println("Программист с именем " + p2.getName() + " и возрастом " + p2.getAge() +
-                    " круче программиста с именем " + p1.getName() + " и возрастом " + p1.getAge() +
-                    " на " + Math.abs(lvlDifference) + " уровней.");
+        if (p1.getName() == p2.getName() && p1.getLvl() == p2.getLvl()) {
+            System.out.println("Сравниваемые программисты являются одним человеком c именем " + p1.getName() + ", возрастом " + p1.getAge() + " и уровнем " + p1.getLvl());
         } else {
-            System.out.println("Программисты " + p1.getName() + " и " + p2.getName() + " находятся на одном уровне.");
+            if (lvlDifference > 0) {
+                System.out.println("Программист с именем " + p1.getName() + " и возрастом " + p1.getAge() +
+                        " круче программиста с именем " + p2.getName() + " и возрастом " + p2.getAge() +
+                        " на " + lvlDifference + " уровней.");
+            } else if (lvlDifference < 0) {
+                System.out.println("Программист с именем " + p2.getName() + " и возрастом " + p2.getAge() +
+                        " круче программиста с именем " + p1.getName() + " и возрастом " + p1.getAge() +
+                        " на " + Math.abs(lvlDifference) + " уровней.");
+            } else {
+                System.out.println("Программисты " + p1.getName() + " и " + p2.getName() + " находятся на одном уровне.");
+            }
         }
     }
 }
