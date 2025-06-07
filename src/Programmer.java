@@ -16,4 +16,8 @@ public class Programmer extends Man {
         return lvl;
     }
 
+    @Override
+    public String toString() {
+        return (String.format("имя: %s, возраст: %s, уровень: %s.", getName(), getAge(), lvl));
+    }
 }

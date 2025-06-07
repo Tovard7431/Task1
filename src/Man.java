@@ -10,7 +10,8 @@ public class Man {
         }
         this.age = age;
 
-        if (name.isEmpty()) {
+
+        if (name == null || name.isEmpty()) {
             name = "Амир";
         }
         this.name = name;
@@ -35,4 +36,5 @@ public class Man {
         }
         return age == man.age && Objects.equals(name, man.name);
     }
+
 }
